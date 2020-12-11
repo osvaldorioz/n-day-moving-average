@@ -1,5 +1,5 @@
      final int deep = 20;
-     final int size = list.size();
+     
      final List<String> fechas = new ArrayList<String>();
      final List<Double> precios = new ArrayList<Double>();
      final List<Double> avgs = new ArrayList<Double>();
@@ -23,7 +23,7 @@
      a.setQuery("SELECT date, close FROM data where date >= '2015-01-01' and date <= '2015-12-31' and ticker = '"+ emisora + "'");
 
      final List<Row> list = a.readCSV("/kueski/historical_stock_prices.csv", fields).collectAsList();
-
+     final int size = list.size();
      for(Row row: list){
          fechas.add(fmt.format(row.getDate(0)));
          precios.add(row.getDouble(1));
